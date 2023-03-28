@@ -6,8 +6,8 @@ services:
     volumes:
     - ./public:/usr/share/nginx/html
     environment:
-      - VIRTUAL_HOST=rps.10botics.com
-      - LETSENCRYPT_HOST=rps.10botics.com
+      - VIRTUAL_HOST=play.10botics.com
+      - LETSENCRYPT_HOST=play.10botics.com
 
 
 networks:
