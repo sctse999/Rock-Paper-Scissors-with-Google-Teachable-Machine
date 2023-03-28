@@ -42,16 +42,28 @@
   <div id="game">
         <!-- start header -->
         <div class="bg-gray-200">
-          <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-10 lg:px-8 lg:flex lg:items-center lg:justify-between">
 
               <!-- start welcome message -->
               <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-                Ready to play
                 <br>
-                <span class="text-indigo-600">Rock Paper Scissors?</span>
+                <span class="text-indigo-600">古惑的包剪揼??</span>
                 <br/>
-                <p class="text-base font-light text-gray-600">by <span class="text-indigo-600 font-extrabold"><a href="https://www.linkedin.com/in/eftimiesilviudaniel/" target="_blank">ESD</a></span> with love for <span class="text-indigo-600 font-extrabold"><a href="https://www.youtube.com/channel/UCHV6pF1KjgCJB4M__4ZYISg/videos" target="_blank">Karl</a></span> & Neo (Vue JS, Tailwind, Laracast's illustrations & Google Teachable Machine)</p>
+                <p class="text-base font-light text-gray-600">
+                
+                <div class="text-base font-normal"> 玩法:
+                  <ol>
+                    <li>1. 電腦會預先 2 秒顯示出包、剪或揼</li>
+                    <li>2. 玩家需出示特別的手勢代表包、剪或揼</li>
+                    <li>3. 10合回內最高分為之勝出</li>
+                  </ol>
+                
+                </div>
+                
+                </p>
+
               </h2>
+
               <!-- end welcome message -->
 
               <!-- start control game -->
@@ -80,23 +92,23 @@
                   <!-- end reset button -->
               </div>
               <!-- end control game -->
-
-          </div>
-        </div>
+              </div>
+              </div>
         <!-- end header -->
 
         <!-- start gameboard -->
         <div class="bg-gray-900 text-white h-full">
-          <div class="flex items-baseline h-full">
+          <div class="flex items-baseline h-full py-20">
 
               <!-- start human box --->
               <div class="items-center flex-1 text-gray-100 text-center bg-gray-900 px-4 py-2 m-2 text-base">
-                  <h4 class="text-lg leading-6 font-medium text-gray-200">👤 Human score: {{ humanScore }} pts </h4>
+                  <h4 class="text-4xl leading-6 font-medium text-gray-200">👤 Human score: {{ humanScore }} pts </h4>
 
                   <h1 class="text-6xl mt-20" v-if="humanChoose === 0">👊</h1>
                   <h1 class="text-6xl mt-20" v-else-if="humanChoose === 1">🤚</h1>
                   <h1 class="text-6xl mt-20" v-else-if="humanChoose === 2">✌️</h1>
-                  <h1 class="text-6xl mt-20" v-else-if="robotChoose === -1"><img class="text-center inline" src="https://johnjorgenson.com/wp-content/uploads/2018/05/colorful-loader-gif-transparent.gif"></h1>
+                  <h1 class="text-6xl mt-20" v-else-if="humanChoose === -1"><img class="text-center inline"
+                      src="https://johnjorgenson.com/wp-content/uploads/2018/05/colorful-loader-gif-transparent.gif"></h1>
                   <h1 class="text-6xl mt-20" v-else></h1>
 
                   <p class="text-center inline text-center mt-20">
@@ -108,7 +120,7 @@
 
               <!-- start robot box --->
               <div class="items-center flex-1 text-gray-100 text-center bg-gray-900 px-4 py-2 m-2 text-base">
-                  <h4 class="text-lg leading-6 font-medium text-gray-200">🤖 Robot score: {{ robotScore }} pts </h4>
+                  <h4 class="text-4xl leading-6 font-medium text-gray-200">🤖 Robot score: {{ robotScore }} pts </h4>
 
                   <h1 class="text-6xl mt-20" v-if="robotChoose === 0">👊</h1>
                   <h1 class="text-6xl mt-20" v-else-if="robotChoose === 1">🤚</h1>
@@ -142,7 +154,8 @@
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/l02IbpV7q/";
+      // const URL = "https://teachablemachine.withgoogle.com/models/l02IbpV7q/";
+      const URL = "https://teachablemachine.withgoogle.com/models/gr4wwddvF/";
 
     let model, webcam, labelContainer, maxPredictions;
 
@@ -156,7 +169,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+      webcam = new tmImage.Webcam(300, 300, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
 
@@ -225,7 +238,7 @@
         playButton: function ()
         {
           // Reset Chooses
-          this.robotChoose=-1;
+          this.robotChoose = Math.floor(Math.random() * 3);
           this.humanChoose=-1;
           document.getElementById('audioEffect1').pause(); 
           document.getElementById('audioEffect2').pause(); 
@@ -236,7 +249,7 @@
           setTimeout(() => 
           {  
           	  // Random robot sign
-              this.robotChoose = Math.floor(Math.random() * 3);
+              // this.robotChoose = Math.floor(Math.random() * 3);
               // Detect sign from human video
               this.humanChoose = parseInt(document.querySelector('#humanChoose').value);
               // Compare the output and increase score for the winner

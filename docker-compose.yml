@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest    
+    volumes:
+    - ./public:/usr/share/nginx/html
+    environment:
+      - VIRTUAL_HOST=rps.10botics.com
+      - LETSENCRYPT_HOST=rps.10botics.com
+
+
+networks:
+  default:
+    external:
+      name: docker05
