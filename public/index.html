@@ -40,30 +40,38 @@
 
   <!-- start game -->   
   <div id="game">
+        <div>
+          <input type="text" id="model_url" name="model_url" size="100"
+            value="https://teachablemachine.withgoogle.com/models/gr4wwddvF/">
+        
+        </div>
         <!-- start header -->
         <div class="bg-gray-200">
           <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-10 lg:px-8 lg:flex lg:items-center lg:justify-between">
 
               <!-- start welcome message -->
+              
               <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
                 <br>
                 <span class="text-indigo-600">古惑的包剪揼??</span>
                 <br/>
+                
                 <p class="text-base font-light text-gray-600">
                 
-                <div class="text-base font-normal"> 玩法:
-                  <ol>
-                    <li>1. 電腦會預先 2 秒顯示出包、剪或揼</li>
-                    <li>2. 玩家需出示特別的手勢代表包、剪或揼</li>
-                    <li>3. 10合回內最高分為之勝出</li>
-                  </ol>
-                
-                </div>
+                  <div class="text-base font-normal"> 玩法:
+                    <ol>
+                      <li>1. 電腦會預先 2 秒顯示出包、剪或揼</li>
+                      <li>2. 玩家需出示特別的手勢代表包、剪或揼</li>
+                      <li>3. 3合回內最高分為之勝出</li>
+                      </ol>
+                      
+                      </div>
                 
                 </p>
 
               </h2>
-
+              <br>
+              
               <!-- end welcome message -->
 
               <!-- start control game -->
@@ -155,13 +163,20 @@
 
     // the link to your model provided by Teachable Machine export panel
       // const URL = "https://teachablemachine.withgoogle.com/models/l02IbpV7q/";
-      const URL = "https://teachablemachine.withgoogle.com/models/gr4wwddvF/";
+
+
+
+
+
 
     let model, webcam, labelContainer, maxPredictions;
 
     // Load the image model and setup the webcam
     async function init() 
     {
+      const URL = document.getElementById("model_url").value
+      
+
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
         model = await tmImage.load(modelURL, metadataURL);
