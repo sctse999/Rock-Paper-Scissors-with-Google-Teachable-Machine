@@ -111,7 +111,7 @@
 
               <!-- start human box --->
               <div class="items-center flex-1 text-gray-100 text-center bg-gray-900 px-4 py-2 m-2 text-base">
-                  <h4 class="text-4xl leading-6 font-medium text-gray-200">👤 Human score: {{ humanScore }} pts </h4>
+                  <h4 class="text-6xl leading-6 font-medium text-gray-200">👤 Human: {{ humanScore }} 分</h4>
 
                   <h1 class="text-6xl mt-20" v-if="humanChoose === 0">👊</h1>
                   <h1 class="text-6xl mt-20" v-else-if="humanChoose === 1">🤚</h1>
@@ -129,7 +129,7 @@
 
               <!-- start robot box --->
               <div class="items-center flex-1 text-gray-100 text-center bg-gray-900 px-4 py-2 m-2 text-base">
-                  <h4 class="text-4xl leading-6 font-medium text-gray-200">🤖 Robot score: {{ robotScore }} pts </h4>
+                  <h4 class="text-6xl leading-6 font-medium text-gray-200">🤖 Robot: {{ robotScore }} 分 </h4>
 
                   <h1 class="text-6xl mt-20" v-if="robotChoose === 0">👊</h1>
                   <h1 class="text-6xl mt-20" v-else-if="robotChoose === 1">🤚</h1>
