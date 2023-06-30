@@ -45,65 +45,7 @@
             value="https://teachablemachine.withgoogle.com/models/ZY1TLtHbG/">
         
         </div>
-        <!-- start header -->
-        <div class="bg-gray-200">
-          <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-10 lg:px-8 lg:flex lg:items-center lg:justify-between">
-
-              <!-- start welcome message -->
-              
-              <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-                <br>
-                <span class="text-indigo-600">古惑的包剪揼??</span>
-                <br/>
-                <!--
-                <p class="text-base font-light text-gray-600">
-                
-                  <div class="text-base font-normal"> 玩法:
-                    <ol>
-                      <li>1. 電腦會預先 2 秒顯示出包、剪或揼</li>
-                      <li>2. 玩家需出示特別的手勢代表包、剪或揼</li>
-                      <li>3. 3合回內最高分為之勝出</li>
-                      </ol>
-                      
-                      </div>
-                
-                </p>
-                -->
-
-              </h2>
-              <br>
-              
-              <!-- end welcome message -->
-
-              <!-- start control game -->
-              <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
-                  <!-- start play button -->
-
-                  <div class="inline-flex rounded-md shadow">
-                    <a href="#" v-on:click="enableButton" id="enableButton" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                      Enable Webcam
-                    </a>
-                  </div>
-
-                  <div class="ml-3 inline-flex rounded-md shadow">
-                    <a href="#" v-on:click="playButton"  id="playButton" class="hidden inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                      Play
-                    </a>
-                  </div>
-                  <!-- end play button -->
-
-                  <!-- start reset button -->
-                  <div class="ml-3 inline-flex rounded-md shadow">
-                    <a href="#" v-on:click="resetButton" id="resetButton"  class="hidden inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                      Reset
-                    </a>
-                  </div>
-                  <!-- end reset button -->
-              </div>
-              <!-- end control game -->
-              </div>
-              </div>
-        <!-- end header -->
+        
 
         <!-- start gameboard -->
         <div class="bg-gray-900 text-white h-full">
@@ -122,10 +64,12 @@
 
                   <p class="text-center inline text-center mt-20">
                       <div id="webcam-container"></div>
-            <div id="label-container" class="text-6xl"></div>
+            
                   </p>
               </div>
               <!-- end human box --->
+
+              <div id="label-container" class="text-4xl"></div>
 
               <!-- start robot box --->
               <div class="items-center flex-1 text-gray-100 text-center bg-gray-900 px-4 py-2 m-2 text-base">
@@ -137,9 +81,49 @@
                   <h1 class="text-6xl mt-20" v-else-if="robotChoose === -1"><img class="text-center inline" src="img/loading.gif"></h1>
                   <h1 class="text-6xl mt-20" v-else></h1>
 
-                  <p class="text-center mt-20">
+                  <!-- <p class="text-center mt-20">
                       <img class="text-center inline" src="img/robot.svg" alt="Laracasts Sign Up Mascot">
-                  </p>
+                  </p> -->
+                  
+                  <!-- start control game -->
+                  <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
+                    <!-- start play button -->
+                  
+                    <div class="inline-flex rounded-md shadow">
+                      <a href="#" v-on:click="enableButton" id="enableButton"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Enable Webcam
+                      </a>
+                    </div>
+                  
+                    <!-- <div class="ml-3 inline-flex rounded-md shadow">
+                                                                                          <a href="#" v-on:click="playButton"  id="playButton" class="hidden inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                                                                            Play
+                                                                                          </a>
+                                                                                        </div> -->
+                    <!-- end play button -->
+                  
+                  
+                  </div>
+                  <!-- end control game -->
+                  
+                  
+                  
+                  <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" v-on:click="playButton" id="playButton"
+                      class="hidden inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                      Play
+                    </a>
+                  </div>
+                  
+                  <!-- start reset button -->
+                  <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" v-on:click="resetButton" id="resetButton"
+                      class="hidden inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                      Reset
+                    </a>
+                  </div>
+                  <!-- end reset button -->
               </div>
               <!-- end robot box --->
           </div>
@@ -203,7 +187,10 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
+
+
     }
+
 
     async function loop() {
         webcam.update(); // update the webcam frame
